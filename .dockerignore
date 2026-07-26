@@ -1,0 +1,6 @@
+**/test/
+**/tests/
+*.log
+*.tmp
+*.env
+.git

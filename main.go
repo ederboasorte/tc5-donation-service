@@ -44,7 +44,10 @@ func main() {
 	}
 
 	db, err := sql.Open("pgx", dbURL)
-	if err != nil || db.Ping() != nil {
+	if err != nil {
+		log.Fatalf("Erro ao abrir conexão com o banco de dados: %v", err)
+	}
+	if err = db.Ping(); err != nil {
 		log.Fatalf("Erro ao conectar ao banco de dados: %v", err)
 	}
 	log.Println("Conectado ao PostgreSQL (donation-service).")
